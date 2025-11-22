@@ -39,7 +39,7 @@ function Section({ title, type }) {
         <h2 className={styles.title}>{title}</h2>
 
         <button className={styles.collapseButton} onClick={handleToggleView}>
-          {showCarousel ? "Show All" : "Collapse"}
+          {showCarousel ? "Show all" : "Collapse"}
         </button>
       </div>
 
