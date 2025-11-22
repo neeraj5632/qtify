@@ -34,3 +34,38 @@
   gap: 16px;
   flex-wrap: wrap;
 }
+
+.sectionWrapper {
+  max-width: 1130px;
+  margin: 0 auto;
+  padding: 24px 32px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.collapseButton {
+  border: 1px solid var(--color-green);
+  background-color: transparent;
+  color: var(--color-green);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.cardsWrapper {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}

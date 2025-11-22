@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import styles from "./Section.module.css";
 import Card from "../Card/Card";
 import { getTopAlbums, getNewAlbums } from "../../api";
+import Carousel from "../Carousel/Carousel";
 
-// 👉 props: title = "Top Albums" / "New Albums", type = "top" / "new"
 function Section({ title, type }) {
   const [albums, setAlbums] = useState([]);
+  const [showCarousel, setShowCarousel] = useState(false);
 
   useEffect(() => {
     async function fetchAlbums() {
@@ -25,27 +26,48 @@ function Section({ title, type }) {
     }
 
     fetchAlbums();
-  }, [type]); // type change hoga tab hi dobara fetch
+  }, [type]);
+
+  const handleToggleView = () => {
+    // Collapse button click hone pe grid ↔ carousel toggle
+    setShowCarousel((prev) => !prev);
+  };
 
   return (
     <section className={styles.sectionWrapper}>
       <div className={styles.header}>
         <h2 className={styles.title}>{title}</h2>
 
-        {/* Abhi ke liye simple Collapse button hi rakhenge */}
-        <button className={styles.collapseButton}>Collapse</button>
+        <button className={styles.collapseButton} onClick={handleToggleView}>
+          {showCarousel ? "Show All" : "Collapse"}
+        </button>
       </div>
 
-      <div className={styles.cardsWrapper}>
-        {albums.map((album) => (
-          <Card
-            key={album.id}
-            image={album.image}
-            title={album.title}
-            follows={album.follows}
-          />
-        ))}
-      </div>
+      {/* Conditional Rendering: Grid ya Carousel */}
+      {showCarousel ? (
+        <Carousel
+          items={albums}
+          renderItem={(album) => (
+            <Card
+              key={album.id}
+              image={album.image}
+              title={album.title}
+              follows={album.follows}
+            />
+          )}
+        />
+      ) : (
+        <div className={styles.cardsWrapper}>
+          {albums.map((album) => (
+            <Card
+              key={album.id}
+              image={album.image}
+              title={album.title}
+              follows={album.follows}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 }

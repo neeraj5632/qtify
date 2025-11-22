@@ -1,0 +1,37 @@
+.carouselWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Swiper slides ke around thoda width dena */
+.slide {
+  display: flex;
+  justify-content: center;
+}
+
+/* Nav buttons – tum Figma ke hisaab se adjust kar sakte ho */
+.navButtonLeft,
+.navButtonRight {
+  position: absolute;
+  z-index: 10;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-color: var(--color-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* left button */
+.navButtonLeft {
+  left: -16px;
+}
+
+/* right button */
+.navButtonRight {
+  right: -16px;
+}
