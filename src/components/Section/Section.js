@@ -39,12 +39,23 @@ function Section({ title, type }) {
         <h2 className={styles.title}>{title}</h2>
 
         <button className={styles.collapseButton} onClick={handleToggleView}>
-          {showCarousel ? "Show all" : "Collapse"}
+          {showCarousel ? "Collapse" : "Show all"}
         </button>
       </div>
 
       {/* Conditional Rendering: Grid ya Carousel */}
       {showCarousel ? (
+        <div className={styles.cardsWrapper}>
+          {albums.map((album) => (
+            <Card
+              key={album.id}
+              image={album.image}
+              title={album.title}
+              follows={album.follows}
+            />
+          ))}
+        </div>
+      ) : (
         <Carousel
           items={albums}
           renderItem={(album) => (
@@ -56,17 +67,6 @@ function Section({ title, type }) {
             />
           )}
         />
-      ) : (
-        <div className={styles.cardsWrapper}>
-          {albums.map((album) => (
-            <Card
-              key={album.id}
-              image={album.image}
-              title={album.title}
-              follows={album.follows}
-            />
-          ))}
-        </div>
       )}
     </section>
   );
