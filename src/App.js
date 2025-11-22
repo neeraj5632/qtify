@@ -7,7 +7,12 @@ function App() {
     <div>
       <Navbar />
       <Hero />
-      <Section /> {/* Top Albums grid */}
+
+      {/* Top Albums section */}
+      <Section title="Top Albums" type="top" />
+
+      {/* New Albums section */}
+      <Section title="New Albums" type="new" />
     </div>
   );
 }

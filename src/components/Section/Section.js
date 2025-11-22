@@ -1,31 +1,38 @@
 import { useEffect, useState } from "react";
 import styles from "./Section.module.css";
 import Card from "../Card/Card";
-import { getTopAlbums } from "../../api";
+import { getTopAlbums, getNewAlbums } from "../../api";
 
-function Section() {
+// 👉 props: title = "Top Albums" / "New Albums", type = "top" / "new"
+function Section({ title, type }) {
   const [albums, setAlbums] = useState([]);
 
-  // 👉 useEffect: component load hote hi API call karega
   useEffect(() => {
     async function fetchAlbums() {
       try {
-        const data = await getTopAlbums();
+        let data = [];
+
+        if (type === "top") {
+          data = await getTopAlbums();
+        } else if (type === "new") {
+          data = await getNewAlbums();
+        }
+
         setAlbums(data);
       } catch (error) {
-        console.error("Failed to fetch top albums", error);
+        console.error("Failed to fetch albums", error);
       }
     }
 
     fetchAlbums();
-  }, []); // empty dependency → sirf first render par call
+  }, [type]); // type change hoga tab hi dobara fetch
 
   return (
     <section className={styles.sectionWrapper}>
       <div className={styles.header}>
-        <h2 className={styles.title}>Top Albums</h2>
+        <h2 className={styles.title}>{title}</h2>
 
-        {/* abhi requirement me sirf Collapse button bola hai */}
+        {/* Abhi ke liye simple Collapse button hi rakhenge */}
         <button className={styles.collapseButton}>Collapse</button>
       </div>
 
