@@ -1,14 +1,14 @@
 import { Chip } from "@mui/material";
 import styles from "./Card.module.css";
 
-function Card({ image, title, follows }) {
+function Card({ image, title, follows, type }) {
   return (
     <div className={styles.card}>
       <div className={styles.imageWrapper}>
         <img src={image} alt={title} className={styles.image} />
 
         <Chip
-          label={`${follows} Follows`}
+          label={`${follows} ${type === "song" ? "Likes" : "Follows"}`}
           size="small"
           className={styles.chip}
         />

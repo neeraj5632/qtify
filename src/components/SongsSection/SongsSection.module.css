@@ -1,0 +1,16 @@
+.sectionWrapper {
+  padding: 24px 32px;
+}
+
+.title {
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+}
+
+.tabItem {
+  color: white !important;
+  text-transform: none !important;
+  font-family: "Poppins" !important;
+}
