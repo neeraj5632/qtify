@@ -1,0 +1,36 @@
+.sectionWrapper {
+  max-width: 1130px;
+  margin: 0 auto;
+  padding: 24px 32px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between; /* title left, button right */
+  align-items: center;
+  margin-bottom: 16px; /* heading aur grid ke beech spacing */
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* temporary simple button styling, figma jaisa approx */
+.collapseButton {
+  border: 1px solid var(--color-green);
+  background-color: transparent;
+  color: var(--color-green);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* yahan grid/flex layout – horizontal spacing + wrap */
+.cardsWrapper {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}

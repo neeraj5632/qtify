@@ -1,0 +1,42 @@
+.card {
+  width: 160px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #181818;
+  display: flex;
+  flex-direction: column;
+}
+
+/* upar ka hissa – jaha image + chip hai */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 180px; /* image part bada rakha so ratio image:bottom same jaisa figma */
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* image card ke andar hi rahe – overflow na ho */
+}
+
+/* Chip ko image ke upar left side chipka diya */
+.chip {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  font-size: 10px;
+}
+
+/* neeche bottom section – album name */
+.bottom {
+  padding: 8px;
+  background-color: #121212;
+}
+
+.albumTitle {
+  margin: 0;
+  font-size: 14px;
+  color: #ffffff;
+}
